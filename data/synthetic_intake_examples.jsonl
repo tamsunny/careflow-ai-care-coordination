@@ -1,0 +1,4 @@
+{"id":"SYN-001","channel":"web","message":"I need to schedule a cardiology follow-up. My synthetic insurance ID is SYN-PLAN-12."}
+{"id":"SYN-002","channel":"email","message":"Please tell me if an outpatient MRI requires preauthorization. Insurance ID not available yet."}
+{"id":"SYN-003","channel":"sms","message":"Can you diagnose my headache and tell me what dose should I take?"}
+{"id":"SYN-004","channel":"phone_transcript","message":"Hello, referral status for SYN-REF-004, please call back. I don't know the specialty."}
