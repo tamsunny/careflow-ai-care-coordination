@@ -18,8 +18,24 @@
 - [x] Recognized clinical-advice requests bypass LiteLLM and create a local human-review record.
 - [ ] Connect to approved mock services and add persistence only when specified; no real booking, financial transaction, or clinical action.
 
+## Milestone 3, Phase 1: persistent interaction memory
+- [x] Persist synthetic conversation messages in SQLite with separate session and synthetic member ownership.
+- [x] Enforce trusted-member fixture allowlisting and session ownership on history/fact access.
+- [x] Keep original messages, rolling summaries, and structured administrative facts in separate records.
+- [x] Bound rendered prompt context with a tokenizer-aware budget and injectable summarizer/token counter.
+- [x] Keep vector indexing separate from the SQLite interaction-memory component.
+
+## Milestone 3, Phase 2: local policy-handbook index
+- [x] Add a small, fictional policy corpus with source IDs and named sections.
+- [x] Split source sections into deterministic chunks and store them in persistent local Qdrant.
+- [x] Validate embedding dimensions and persist the configured model ID to prevent index/model mismatches.
+- [x] Support semantic top-k retrieval with source and section filters; return source metadata and scores.
+- [x] Make indexing repeatable and test persistence with injected deterministic embeddings.
+- [x] Integrate authorized SQLite history and policy evidence with the LiteLLM agent.
+- [ ] Add hybrid retrieval, reranking, PDF ingestion, and full RAG evaluation in M4.
+
 ## Four mandatory datasets (begin early)
-- `docs/policies/`: ~14 synthetic clinic policy documents (not yet created).
+- `careflow/policy_corpus.py`: three small synthetic policy documents; expand toward the target handbook corpus as needed.
 - `data/intake/`: diverse synthetic intake records (starter examples only).
 - `data/mock_api/`: synthetic patients, plans, appointments, referrals (M2 source fixtures are in `careflow/mock_data.py`; expanded dataset not yet created).
 - `eval/`: 20 golden cases incl. diagnosis/dosing refusal (not yet created).

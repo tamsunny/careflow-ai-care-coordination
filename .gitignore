@@ -5,6 +5,17 @@ __pycache__/
 .venv/
 venv/
 
+# Local SQLite memory databases
+*.db
+*.db-*
+*.sqlite
+*.sqlite-*
+*.sqlite3
+*.sqlite3-*
+
+# Local Qdrant policy index
+data/qdrant_policy_index/
+
 # Secrets
 .env
 .env.*

@@ -24,6 +24,50 @@ CareFlow is a **healthcare-operations prototype**, not a medical device. It pars
 - A deterministic keyword/pattern screen routes recognized clinical-advice requests directly to a local human-review record before calling LiteLLM. This demo screen is not exhaustive or clinically validated.
 - Unknown records have explicit `not_found` statuses. Invalid inputs raise Pydantic validation errors; unexpected technical errors are not converted to record-not-found responses.
 
+**Milestone M3 Phase 1 (persistent interaction memory)**
+- `SQLiteConversationMemory` persists synthetic user, assistant, and tool messages, scoped by a generated session ID and an explicitly supplied trusted synthetic member ID.
+- History loads require both identifiers and enforce the session owner. Member IDs must match the synthetic fixture allowlist; identity is never inferred from message text or model output.
+- Original messages remain in SQLite. Rolling summaries and typed administrative facts (for example `SYN-REF-004`) are stored separately.
+- Prompt context includes a tokenizer-counted budget using `tiktoken` by default, with injectable token counters and summarizers for offline tests.
+- SQLite database files and sidecars are excluded by `.gitignore`. This phase does not add external identity/authentication.
+
+**Milestone M3 Phase 2 (synthetic policy index)**
+- `LocalPolicyIndex` chunks a small source-controlled fictional handbook by section and indexes it in persistent local Qdrant; returned results include source ID, section, text, and similarity score.
+- The default corpus is in `careflow/policy_corpus.py`. Search supports configurable `top_k` and exact source/section filters.
+- A caller-supplied embedder and model ID are used consistently; vector dimensions are checked, and a local manifest prevents reopening an index with a different model configuration.
+- Indexing synchronizes the collection to the supplied corpus using deterministic point IDs. Local vector data is stored under the Git-ignored `data/qdrant_policy_index/`.
+- Policy indexing is separate from SQLite conversation memory. This phase does not add hybrid search, reranking, PDF processing, or full RAG evaluation. Tests inject deterministic embeddings and require no API credentials.
+
+**M3 integration**
+- The LiteLLM agent can receive `memory` and `policy_index` instances. When memory is enabled, each `respond` call requires host-supplied `trusted_member_id`, `session_id`, and a stable `idempotency_key`; only authorized history and facts are loaded, and successful turns are committed atomically.
+- Policy passages are placed in an explicitly untrusted user-context message with source and section metadata. Policy-specific answers are extractive, cited passages (not model-generated paraphrases) and fail closed if no passage meets the configurable similarity threshold (default `0.35`); tune this threshold for the selected embedding model.
+- Recognized clinical-advice requests bypass model calls and policy retrieval, create a local human-review record, and persist the synthetic turn when memory is enabled.
+- A completed key returns its stored response without another model or tool call; reusing that key for different request text is rejected. In-process concurrent retries are serialized by key. Separate processes do not reserve in-flight keys, so simultaneous cross-process requests could both call the model/tools before SQLite accepts only one completed turn.
+- Summary refresh runs separately after turn commit. A refresh error is logged without request contents and does not change the successful response; retry it with `memory.refresh_summary(...)`. A retry after a completed turn is idempotent.
+- This remains a prototype: host identity verification is external, local Qdrant is single-process storage, and the threshold/summarizer/embedding model require deployment-specific validation.
+
+Run the end-to-end synthetic verification with:
+
+```powershell
+.\.venv\Scripts\python.exe -m pytest -q tests\test_m3_end_to_end.py
+```
+
+The test uses a deterministic fake embedder and fake LLM responses with real local SQLite and Qdrant persistence. It verifies integration mechanics only; fake embeddings do **not** establish semantic retrieval quality. No live embedding-provider or live-agent smoke test is included.
+
+```python
+agent = LiteLLMSchedulingInsuranceAgent(
+    model="your-configured-model",
+    memory=memory,
+    policy_index=policy_index,
+)
+reply = agent.respond(
+    "Check this synthetic request.",
+    trusted_member_id="SYN-MEMBER-001",
+    session_id=session_id,  # supplied by the host application
+    idempotency_key=host_generated_request_id,  # reuse for retries of this logical turn
+)
+```
+
 Example appointment lookup (no API key required):
 
 ```python
@@ -81,7 +125,8 @@ Model identifiers and structured-output support vary by provider. This starter r
 ```
 Synthetic request -> Intake (M1)
                        -> Approved mock EHR / eligibility / co-pay tools (M2)
-                       -> Memory + Qdrant policies (M3)
+                       -> SQLite interaction memory (M3 Phase 1)
+                       -> Qdrant policy index (M3 Phase 2)
                        -> Hybrid RAG + eval (M4)
                        -> LangGraph HITL workflow (M5)
                        -> Four agents + MCP mock services (M6)
@@ -95,7 +140,7 @@ Synthetic request -> Intake (M1)
 |---|---|---|
 | M1 | LiteLLM + Pydantic structured patient intake | Starter included; live API smoke test pending |
 | M2 | Mock EHR appointment, eligibility, copay, human flag tools | Typed in-memory foundation included; no real integrations |
-| M3 | Session/long-term memory and Qdrant handbook index | Pending |
+| M3 | Session/long-term memory and Qdrant handbook index | Phases 1 and 2 included; RAG pending |
 | M4 | Hybrid policy PDF RAG + rerank + groundedness baseline | Pending |
 | M5 | LangGraph checkpointed intake → eligibility → referral | Pending |
 | M6 | Intake, Insurance/Policy, Referral, Clinical Safety agents + MCP | Pending |
@@ -104,7 +149,7 @@ Synthetic request -> Intake (M1)
 
 ## Data to prepare early
 
-1. **Clinic corpus:** ~14 fictional policy documents with intentionally different per-specialty numbers.
+1. **Clinic corpus:** The starter includes three fictional policy documents in `careflow/policy_corpus.py`; expand toward ~14 documents with intentionally different synthetic terms.
 2. **Intake messages:** synthetic phone, email, web and SMS examples, including ambiguity and prohibited clinical-advice requests.
 3. **Mock API tables:** synthetic patients, plans, eligibility, appointments and referrals; M2 currently uses small source-controlled fixtures in `careflow/mock_data.py`. Expand only with synthetic records; MITRE Synthea may supply synthetic base records subject to its license.
 4. **Golden evaluation:** 20 cases, with strong clinical refusal/escalation coverage, including a fake clinician requesting dosing advice.
