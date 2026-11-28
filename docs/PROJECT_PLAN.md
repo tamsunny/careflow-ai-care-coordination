@@ -9,10 +9,19 @@
 - [ ] User confirms one live provider call using synthetic inputs.
 - [ ] Instructor/TA verifies M1 against official lab checklist.
 
+## Milestone 2 foundation
+- [x] Typed Pydantic contracts and deterministic synthetic fixtures for appointment lookup, insurance eligibility, co-pay calculation, and human-review flagging.
+- [x] Unknown records use explicit statuses; invalid input raises validation errors.
+- [x] Co-pay arithmetic uses `Decimal` and rounds currency to cents.
+- [x] Human-review records are auditable in memory only.
+- [x] LiteLLM tool schemas and an allowlisted, bounded tool-call harness validate arguments and preserve tool-call IDs/history.
+- [x] Recognized clinical-advice requests bypass LiteLLM and create a local human-review record.
+- [ ] Connect to approved mock services and add persistence only when specified; no real booking, financial transaction, or clinical action.
+
 ## Four mandatory datasets (begin early)
 - `docs/policies/`: ~14 synthetic clinic policy documents (not yet created).
 - `data/intake/`: diverse synthetic intake records (starter examples only).
-- `data/mock_api/`: synthetic patients, plans, appointments, referrals (not yet created).
+- `data/mock_api/`: synthetic patients, plans, appointments, referrals (M2 source fixtures are in `careflow/mock_data.py`; expanded dataset not yet created).
 - `eval/`: 20 golden cases incl. diagnosis/dosing refusal (not yet created).
 
 ## Architecture decisions

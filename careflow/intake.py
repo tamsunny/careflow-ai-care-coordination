@@ -3,6 +3,7 @@
 No patient records should enter this prototype. Only synthetic examples.
 """
 import json
+import re
 from collections.abc import Callable
 from typing import Any
 
@@ -25,6 +26,32 @@ CLINICAL_ADVICE_MARKERS = (
     "diagnose", "diagnosis", "what disease", "what medication",
     "what dose", "dosage", "dose should", "prescribe", "treatment advice",
 )
+CLINICAL_ADVICE_PATTERNS = tuple(
+    re.compile(pattern)
+    for pattern in (
+        r"\b(?:dose|dosage)\b",
+        r"\b(?:diagnos(?:e|is|ing)|prescrib(?:e|ed|ing|tion))\b",
+        r"\bwhat\s+(?:medication|medicine|drug)\b",
+        r"\b(?:medical|treatment)\s+advice\b",
+        r"\b(?:should|can|could|may)\s+i\s+(?:take|start|stop|increase|decrease|change|mix)\b",
+        r"\bwhat\s+can\s+i\s+(?:take|use)\b",
+        r"\bis\s+it\s+safe\s+to\s+(?:take|use|stop|start)\b",
+        r"\bwhat\s+should\s+i\s+do\b",
+        r"\b(?:do|could|might)\s+i\s+have\b",
+        r"\bwhat\s+does\s+.+\s+mean\b",
+        r"\bwhat(?:'s| is)\s+wrong\s+with\s+me\b",
+        r"\bwhat\s+could\s+be\s+causing\b",
+        r"\bhow\s+(?:do|can|should)\s+i\s+treat\b",
+    )
+)
+
+
+def is_clinical_advice_request(message: str) -> bool:
+    """Conservatively identify common clinical-advice requests for escalation."""
+    normalized = message.casefold()
+    return any(marker in normalized for marker in CLINICAL_ADVICE_MARKERS) or any(
+        pattern.search(normalized) for pattern in CLINICAL_ADVICE_PATTERNS
+    )
 
 
 class IntakeParsingError(ValueError):
@@ -60,7 +87,7 @@ def parse_patient_message(
 
     # Illustrative defense in depth: override model refusal classification for
     # explicitly clinical-advice requests. Not a comprehensive clinical guardrail.
-    if any(marker in message.lower() for marker in CLINICAL_ADVICE_MARKERS):
+    if is_clinical_advice_request(message):
         parsed.needs_human_review = True
         parsed.reason_for_review = "Clinical advice requested; hand off to qualified staff"
     return parsed
