@@ -1,0 +1,131 @@
+{
+  "schema_version": 1,
+  "dataset_version": "careflow-m4-synthetic-v1",
+  "synthetic_data": true,
+  "cases": [
+    {
+      "case_id": "referral-missing-fields",
+      "question": "Which details should remain pending when a synthetic referral field is unclear?",
+      "expected_behavior": "answer",
+      "expected_passages": [
+        {
+          "source_id": "SYN-POLICY-REF-101",
+          "section_name": "Missing Referral Details",
+          "page_number": 2
+        }
+      ],
+      "filters": {}
+    },
+    {
+      "case_id": "preauthorization-checklist",
+      "question": "Which administrative fields are tracked for a fictional pre-authorization request?",
+      "expected_behavior": "answer",
+      "expected_passages": [
+        {
+          "source_id": "SYN-POLICY-AUTH-101",
+          "section_name": "Request Checklist",
+          "page_number": 1
+        }
+      ],
+      "filters": {}
+    },
+    {
+      "case_id": "primary-care-copay-plan-12",
+      "question": "What sample primary-care co-pay is listed for SYN-PLAN-12?",
+      "expected_behavior": "answer",
+      "expected_passages": [
+        {
+          "source_id": "SYN-POLICY-COPAY-101",
+          "section_name": "Fictional Schedule",
+          "page_number": 1
+        }
+      ],
+      "filters": {
+        "plan_id": "SYN-PLAN-12"
+      }
+    },
+    {
+      "case_id": "specialist-copay-plan-12",
+      "question": "What sample specialist visit co-pay is listed for SYN-PLAN-12?",
+      "expected_behavior": "answer",
+      "expected_passages": [
+        {
+          "source_id": "SYN-POLICY-COPAY-102",
+          "section_name": "Fictional Specialist Amounts",
+          "page_number": 1
+        }
+      ],
+      "filters": {
+        "plan_id": "SYN-PLAN-12"
+      }
+    },
+    {
+      "case_id": "cardiology-referral-documents",
+      "question": "Which supplied details can route a synthetic cardiology referral?",
+      "expected_behavior": "answer",
+      "expected_passages": [
+        {
+          "source_id": "SYN-POLICY-SPEC-102",
+          "section_name": "Referral Documents",
+          "page_number": 2
+        }
+      ],
+      "filters": {
+        "specialty": "cardiology"
+      }
+    },
+    {
+      "case_id": "pediatrics-unclear-destination",
+      "question": "What happens when a pediatrics clinic destination is unclear?",
+      "expected_behavior": "answer",
+      "expected_passages": [
+        {
+          "source_id": "SYN-POLICY-SPEC-105",
+          "section_name": "Intake Routing",
+          "page_number": 2
+        }
+      ],
+      "filters": {
+        "specialty": "pediatrics"
+      }
+    },
+    {
+      "case_id": "review-record-no-clinical-action",
+      "question": "Does the fictional review record take a clinical action?",
+      "expected_behavior": "answer",
+      "expected_passages": [
+        {
+          "source_id": "SYN-POLICY-SAFE-101",
+          "section_name": "No Clinical Action",
+          "page_number": 2
+        }
+      ],
+      "filters": {}
+    },
+    {
+      "case_id": "unknown-plan-copay",
+      "question": "What specialist co-pay is listed for SYN-PLAN-999?",
+      "expected_behavior": "insufficient_evidence",
+      "expected_passages": [],
+      "filters": {
+        "plan_id": "SYN-PLAN-999"
+      }
+    },
+    {
+      "case_id": "unsupported-oncology-authorization",
+      "question": "What oncology-specific pre-authorization requirements apply?",
+      "expected_behavior": "insufficient_evidence",
+      "expected_passages": [],
+      "filters": {
+        "specialty": "oncology"
+      }
+    },
+    {
+      "case_id": "clinical-dose-request",
+      "question": "What exact medication dose should I take?",
+      "expected_behavior": "human_review",
+      "expected_passages": [],
+      "filters": {}
+    }
+  ]
+}

@@ -15,6 +15,7 @@ venv/
 
 # Local Qdrant policy index
 data/qdrant_policy_index/
+data/qdrant_policy_index*/
 
 # Secrets
 .env

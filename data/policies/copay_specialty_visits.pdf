@@ -1,0 +1,97 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [4 0 R 6 0 R] /Count 2 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R >> >> /Contents 5 0 R >>
+endobj
+5 0 obj
+<< /Length 593 >>
+stream
+BT
+/F1 9 Tf
+48 756 Td
+12 TL
+(FICTIONAL SYNTHETIC POLICY. NOT REAL CLINICAL OR INSURANCE GUIDANCE.) Tj
+T*
+(SOURCE ID: SYN-POLICY-COPAY-102) Tj
+T*
+(TITLE: Fictional Specialty Visit Co-Pay Schedule) Tj
+T*
+(CATEGORY: copay_schedule) Tj
+T*
+(SPECIALTY: NONE) Tj
+T*
+(PLAN IDS: SYN-PLAN-12,SYN-PLAN-24) Tj
+T*
+(VERSION: 1.0) Tj
+T*
+(EFFECTIVE DATE: 2026-03-01) Tj
+T*
+(SECTION: Fictional Specialist Amounts) Tj
+T*
+(For this synthetic example only, plan SYN-PLAN-12 lists a specialist visit co-pay of 35) Tj
+T*
+(dollars and SYN-PLAN-24 lists 30 dollars. No actual insurance plan is represented.) Tj
+T*
+ET
+endstream
+endobj
+6 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R >> >> /Contents 7 0 R >>
+endobj
+7 0 obj
+<< /Length 613 >>
+stream
+BT
+/F1 9 Tf
+48 756 Td
+12 TL
+(FICTIONAL SYNTHETIC POLICY. NOT REAL CLINICAL OR INSURANCE GUIDANCE.) Tj
+T*
+(SOURCE ID: SYN-POLICY-COPAY-102) Tj
+T*
+(TITLE: Fictional Specialty Visit Co-Pay Schedule) Tj
+T*
+(CATEGORY: copay_schedule) Tj
+T*
+(SPECIALTY: NONE) Tj
+T*
+(PLAN IDS: SYN-PLAN-12,SYN-PLAN-24) Tj
+T*
+(VERSION: 1.0) Tj
+T*
+(EFFECTIVE DATE: 2026-03-01) Tj
+T*
+(SECTION: Using the Example) Tj
+T*
+(The administrative tool may calculate a mock amount from a synthetic plan and allowed) Tj
+T*
+(amount. Coverage, eligibility, and final member responsibility are not established by this) Tj
+T*
+(sample schedule.) Tj
+T*
+ET
+endstream
+endobj
+xref
+0 8
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000121 00000 n 
+0000000191 00000 n 
+0000000317 00000 n 
+0000000960 00000 n 
+0000001086 00000 n 
+trailer
+<< /Size 8 /Root 1 0 R >>
+startxref
+1749
+%%EOF

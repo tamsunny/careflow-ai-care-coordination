@@ -1,0 +1,161 @@
+{
+  "schema_version": 1,
+  "synthetic_data": true,
+  "declaration": "Every document is fictional synthetic training material, not a real clinic policy, coverage contract, clinical instruction, or patient record.",
+  "documents": [
+    {
+      "source_id": "SYN-POLICY-REF-101",
+      "file": "referral_intake_routing.pdf",
+      "title": "Fictional Referral Intake and Routing",
+      "category": "referral",
+      "specialty": null,
+      "plan_ids": [],
+      "version": "1.0",
+      "effective_date": "2026-01-15",
+      "synthetic_data": true
+    },
+    {
+      "source_id": "SYN-POLICY-REF-102",
+      "file": "referral_status_followup.pdf",
+      "title": "Fictional Referral Status and Follow-up",
+      "category": "referral",
+      "specialty": null,
+      "plan_ids": [],
+      "version": "1.0",
+      "effective_date": "2026-01-15",
+      "synthetic_data": true
+    },
+    {
+      "source_id": "SYN-POLICY-AUTH-101",
+      "file": "preauthorization_request.pdf",
+      "title": "Fictional Pre-Authorization Request Workflow",
+      "category": "pre_authorization",
+      "specialty": null,
+      "plan_ids": [],
+      "version": "1.0",
+      "effective_date": "2026-02-01",
+      "synthetic_data": true
+    },
+    {
+      "source_id": "SYN-POLICY-AUTH-102",
+      "file": "preauthorization_status.pdf",
+      "title": "Fictional Pre-Authorization Status Handling",
+      "category": "pre_authorization",
+      "specialty": null,
+      "plan_ids": [],
+      "version": "1.0",
+      "effective_date": "2026-02-01",
+      "synthetic_data": true
+    },
+    {
+      "source_id": "SYN-POLICY-COPAY-101",
+      "file": "copay_primary_care.pdf",
+      "title": "Fictional Primary Care Co-Pay Schedule",
+      "category": "copay_schedule",
+      "specialty": null,
+      "plan_ids": ["SYN-PLAN-12", "SYN-PLAN-24"],
+      "version": "1.0",
+      "effective_date": "2026-03-01",
+      "synthetic_data": true
+    },
+    {
+      "source_id": "SYN-POLICY-COPAY-102",
+      "file": "copay_specialty_visits.pdf",
+      "title": "Fictional Specialty Visit Co-Pay Schedule",
+      "category": "copay_schedule",
+      "specialty": null,
+      "plan_ids": ["SYN-PLAN-12", "SYN-PLAN-24"],
+      "version": "1.0",
+      "effective_date": "2026-03-01",
+      "synthetic_data": true
+    },
+    {
+      "source_id": "SYN-POLICY-SAFE-101",
+      "file": "clinical_escalation_admin_flow.pdf",
+      "title": "Fictional Clinical Escalation Administrative Flow",
+      "category": "clinical_escalation",
+      "specialty": null,
+      "plan_ids": [],
+      "version": "1.0",
+      "effective_date": "2026-01-15",
+      "synthetic_data": true
+    },
+    {
+      "source_id": "SYN-POLICY-INTAKE-101",
+      "file": "intake_standard_operating_procedure.pdf",
+      "title": "Fictional Intake Standard Operating Procedure",
+      "category": "intake_sop",
+      "specialty": null,
+      "plan_ids": [],
+      "version": "1.0",
+      "effective_date": "2026-01-15",
+      "synthetic_data": true
+    },
+    {
+      "source_id": "SYN-POLICY-SPEC-101",
+      "file": "family_medicine_handbook.pdf",
+      "title": "Fictional Family Medicine Administrative Handbook",
+      "category": "specialty_handbook",
+      "specialty": "family_medicine",
+      "plan_ids": [],
+      "version": "1.0",
+      "effective_date": "2026-04-01",
+      "synthetic_data": true
+    },
+    {
+      "source_id": "SYN-POLICY-SPEC-102",
+      "file": "cardiology_handbook.pdf",
+      "title": "Fictional Cardiology Administrative Handbook",
+      "category": "specialty_handbook",
+      "specialty": "cardiology",
+      "plan_ids": [],
+      "version": "1.0",
+      "effective_date": "2026-04-01",
+      "synthetic_data": true
+    },
+    {
+      "source_id": "SYN-POLICY-SPEC-103",
+      "file": "dermatology_handbook.pdf",
+      "title": "Fictional Dermatology Administrative Handbook",
+      "category": "specialty_handbook",
+      "specialty": "dermatology",
+      "plan_ids": [],
+      "version": "1.0",
+      "effective_date": "2026-04-01",
+      "synthetic_data": true
+    },
+    {
+      "source_id": "SYN-POLICY-SPEC-104",
+      "file": "neurology_handbook.pdf",
+      "title": "Fictional Neurology Administrative Handbook",
+      "category": "specialty_handbook",
+      "specialty": "neurology",
+      "plan_ids": [],
+      "version": "1.0",
+      "effective_date": "2026-04-01",
+      "synthetic_data": true
+    },
+    {
+      "source_id": "SYN-POLICY-SPEC-105",
+      "file": "pediatrics_handbook.pdf",
+      "title": "Fictional Pediatrics Administrative Handbook",
+      "category": "specialty_handbook",
+      "specialty": "pediatrics",
+      "plan_ids": [],
+      "version": "1.0",
+      "effective_date": "2026-04-01",
+      "synthetic_data": true
+    },
+    {
+      "source_id": "SYN-POLICY-SPEC-106",
+      "file": "orthopedics_handbook.pdf",
+      "title": "Fictional Orthopedics Administrative Handbook",
+      "category": "specialty_handbook",
+      "specialty": "orthopedics",
+      "plan_ids": [],
+      "version": "1.0",
+      "effective_date": "2026-04-01",
+      "synthetic_data": true
+    }
+  ]
+}

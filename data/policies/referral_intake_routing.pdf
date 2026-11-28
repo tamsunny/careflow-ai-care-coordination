@@ -1,0 +1,99 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [4 0 R 6 0 R] /Count 2 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R >> >> /Contents 5 0 R >>
+endobj
+5 0 obj
+<< /Length 653 >>
+stream
+BT
+/F1 9 Tf
+48 756 Td
+12 TL
+(FICTIONAL SYNTHETIC POLICY. NOT REAL CLINICAL OR INSURANCE GUIDANCE.) Tj
+T*
+(SOURCE ID: SYN-POLICY-REF-101) Tj
+T*
+(TITLE: Fictional Referral Intake and Routing) Tj
+T*
+(CATEGORY: referral) Tj
+T*
+(SPECIALTY: NONE) Tj
+T*
+(PLAN IDS: NONE) Tj
+T*
+(VERSION: 1.0) Tj
+T*
+(EFFECTIVE DATE: 2026-01-15) Tj
+T*
+(SECTION: Referral Record Fields) Tj
+T*
+(For this fictional workflow, a referral record may include a synthetic referral identifier,) Tj
+T*
+(requested specialty, referring department, and receiving clinic. Staff should record only) Tj
+T*
+(administrative details supplied through an approved synthetic intake channel.) Tj
+T*
+ET
+endstream
+endobj
+6 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R >> >> /Contents 7 0 R >>
+endobj
+7 0 obj
+<< /Length 608 >>
+stream
+BT
+/F1 9 Tf
+48 756 Td
+12 TL
+(FICTIONAL SYNTHETIC POLICY. NOT REAL CLINICAL OR INSURANCE GUIDANCE.) Tj
+T*
+(SOURCE ID: SYN-POLICY-REF-101) Tj
+T*
+(TITLE: Fictional Referral Intake and Routing) Tj
+T*
+(CATEGORY: referral) Tj
+T*
+(SPECIALTY: NONE) Tj
+T*
+(PLAN IDS: NONE) Tj
+T*
+(VERSION: 1.0) Tj
+T*
+(EFFECTIVE DATE: 2026-01-15) Tj
+T*
+(SECTION: Missing Referral Details) Tj
+T*
+(If an administrative field is missing or unclear, mark the synthetic referral as pending) Tj
+T*
+(coordinator review. Do not infer a specialty, create a clinical rationale, or represent an) Tj
+T*
+(incomplete referral as accepted.) Tj
+T*
+ET
+endstream
+endobj
+xref
+0 8
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000121 00000 n 
+0000000191 00000 n 
+0000000317 00000 n 
+0000001020 00000 n 
+0000001146 00000 n 
+trailer
+<< /Size 8 /Root 1 0 R >>
+startxref
+1804
+%%EOF

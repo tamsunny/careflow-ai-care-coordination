@@ -4,7 +4,7 @@ from dataclasses import dataclass
 from datetime import date, datetime, timezone
 from decimal import Decimal
 
-from .tool_models import AppointmentSlot, ServiceCategory
+from .tool_models import AppointmentSlot, ReferralTrackingRecord, ServiceCategory
 
 
 @dataclass(frozen=True)
@@ -73,5 +73,31 @@ MOCK_PLANS = {
             ("urgent_care", Decimal("45.00")),
         ),
         coinsurance_rate=Decimal("0.20"),
+    ),
+}
+
+MOCK_REFERRAL_ROUTES = {
+    "cardiology": "Fictional Cardiology Referral Desk",
+    "dermatology": "Fictional Dermatology Referral Desk",
+    "family_medicine": "Fictional Family Medicine Referral Desk",
+    "pediatrics": "Fictional Pediatrics Referral Desk",
+}
+
+MOCK_REFERRALS = {
+    "SYN-REF-TRACK-001": ReferralTrackingRecord(
+        referral_id="SYN-REF-TRACK-001",
+        request_id="SYN-REQ-TRACK-001",
+        member_id="SYN-MEMBER-001",
+        referral_status="pending",
+        specialty="cardiology",
+        destination=MOCK_REFERRAL_ROUTES["cardiology"],
+    ),
+    "SYN-REF-TRACK-002": ReferralTrackingRecord(
+        referral_id="SYN-REF-TRACK-002",
+        request_id="SYN-REQ-TRACK-002",
+        member_id="SYN-MEMBER-002",
+        referral_status="completed",
+        specialty="dermatology",
+        destination=MOCK_REFERRAL_ROUTES["dermatology"],
     ),
 }

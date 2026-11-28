@@ -44,6 +44,32 @@ class InsuranceEligibilityOutput(ToolOutput):
     coverage_end: date | None
 
 
+class ReferralRoutingInput(ToolInput):
+    request_id: str = Field(pattern=r"^SYN-REQ-[A-Z0-9-]+$")
+    specialty: str = Field(min_length=1, max_length=80)
+
+
+class ReferralRoutingOutput(ToolOutput):
+    status: Literal["routed", "not_found"]
+    request_id: str
+    referral_id: str | None
+    specialty: str
+    destination: str | None
+
+
+class ReferralLookupInput(ToolInput):
+    referral_id: str = Field(pattern=r"^SYN-REF-[A-Z0-9-]+$")
+
+
+class ReferralTrackingRecord(ToolOutput):
+    referral_id: str = Field(pattern=r"^SYN-REF-[A-Z0-9-]+$")
+    request_id: str = Field(pattern=r"^SYN-REQ-[A-Z0-9-]+$")
+    member_id: str = Field(pattern=r"^SYN-MEMBER-[A-Z0-9-]+$")
+    referral_status: Literal["pending", "scheduled", "completed", "cancelled"]
+    specialty: str = Field(min_length=1, max_length=80)
+    destination: str = Field(min_length=1, max_length=120)
+
+
 ServiceCategory = Literal["primary_care", "specialist_visit", "urgent_care"]
 
 

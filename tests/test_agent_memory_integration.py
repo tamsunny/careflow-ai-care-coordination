@@ -411,6 +411,37 @@ def test_policy_question_returns_only_cited_retrieved_passages():
     assert completion.calls == []
 
 
+def test_policy_citation_includes_document_version_and_page():
+    policy_index = FakePolicyIndex(
+        (
+            PolicySearchResult(
+                chunk_id="specialist-copay-page-2",
+                source_id="SYN-POLICY-INS-001",
+                title="Fictional Insurance Reference",
+                category="copay_schedule",
+                version="2.1",
+                section_name="Synthetic Specialist Copays",
+                page_start=2,
+                page_end=2,
+                text="SYN-PLAN-12 has a fictional specialist visit copay.",
+                score=0.91,
+            ),
+        )
+    )
+    agent = LiteLLMSchedulingInsuranceAgent(
+        "mock/model",
+        completion_fn=SequencedCompletion(),
+        policy_index=policy_index,
+    )
+
+    response = agent.respond("What is the fictional specialist copay?")
+
+    assert (
+        "[SYN-POLICY-INS-001 | Synthetic Specialist Copays] "
+        "(v2.1, p. 2)"
+    ) in response
+
+
 def test_model_cannot_add_unsupported_policy_claims_without_evidence():
     completion = SequencedCompletion(
         model_response("Your fictional plan covers the appointment.")

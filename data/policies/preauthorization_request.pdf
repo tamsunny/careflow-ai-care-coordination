@@ -1,0 +1,99 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [4 0 R 6 0 R] /Count 2 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R >> >> /Contents 5 0 R >>
+endobj
+5 0 obj
+<< /Length 637 >>
+stream
+BT
+/F1 9 Tf
+48 756 Td
+12 TL
+(FICTIONAL SYNTHETIC POLICY. NOT REAL CLINICAL OR INSURANCE GUIDANCE.) Tj
+T*
+(SOURCE ID: SYN-POLICY-AUTH-101) Tj
+T*
+(TITLE: Fictional Pre-Authorization Request Workflow) Tj
+T*
+(CATEGORY: pre_authorization) Tj
+T*
+(SPECIALTY: NONE) Tj
+T*
+(PLAN IDS: NONE) Tj
+T*
+(VERSION: 1.0) Tj
+T*
+(EFFECTIVE DATE: 2026-02-01) Tj
+T*
+(SECTION: Request Checklist) Tj
+T*
+(This fictional pre-authorization workflow tracks a synthetic request identifier, service) Tj
+T*
+(label, submitting department, and submission date. These fields are examples for) Tj
+T*
+(administrative demonstrations and are not payer requirements.) Tj
+T*
+ET
+endstream
+endobj
+6 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R >> >> /Contents 7 0 R >>
+endobj
+7 0 obj
+<< /Length 596 >>
+stream
+BT
+/F1 9 Tf
+48 756 Td
+12 TL
+(FICTIONAL SYNTHETIC POLICY. NOT REAL CLINICAL OR INSURANCE GUIDANCE.) Tj
+T*
+(SOURCE ID: SYN-POLICY-AUTH-101) Tj
+T*
+(TITLE: Fictional Pre-Authorization Request Workflow) Tj
+T*
+(CATEGORY: pre_authorization) Tj
+T*
+(SPECIALTY: NONE) Tj
+T*
+(PLAN IDS: NONE) Tj
+T*
+(VERSION: 1.0) Tj
+T*
+(EFFECTIVE DATE: 2026-02-01) Tj
+T*
+(SECTION: Submission Handling) Tj
+T*
+(A missing field is returned to the fictional intake queue for human completion. The) Tj
+T*
+(prototype does not submit requests to insurers, determine medical necessity, or make) Tj
+T*
+(coverage decisions.) Tj
+T*
+ET
+endstream
+endobj
+xref
+0 8
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000121 00000 n 
+0000000191 00000 n 
+0000000317 00000 n 
+0000001004 00000 n 
+0000001130 00000 n 
+trailer
+<< /Size 8 /Root 1 0 R >>
+startxref
+1776
+%%EOF
